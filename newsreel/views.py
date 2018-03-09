@@ -13,3 +13,18 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         """Return the last five published questions."""
         return BlogPost.objects.order_by('-pub_date')[:5]
+
+
+class DetailView(generic.DetailView):
+    model = BlogPost
+    template_Name = 'newsreel/detail.html'
+
+
+class CurrentView(generic.DetailView):
+    model = BlogPost
+    template_name = 'newsreel/current.html'
+
+
+    def comment():
+        pass
+
