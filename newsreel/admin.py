@@ -13,6 +13,8 @@ class BlogAdmin(admin.ModelAdmin):
     ('Date information',    {'fields': ['pub_date'], 'classes': ['collapse']}),
     ]
 #    inlines = [ChoiceInline]
+    list_filter = ['pub_date']
+    search_fields = ['content','title', 'author']
     list_display = ('title','pub_date', 'author')
 
 admin.site.register(BlogPost, BlogAdmin)
