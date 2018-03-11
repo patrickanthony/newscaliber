@@ -6,7 +6,7 @@ class BlogPost(models.Model):
     author = models.CharField(max_length=200)
     pub_date = models.DateTimeField('date published')
     title = models.CharField(max_length=200)
-    content = models.CharField(max_length=2000)
+    content = models.TextField(max_length=2000)
 
     def __str__(self):
         return  self.title
