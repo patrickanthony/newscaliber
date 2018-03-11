@@ -2,7 +2,7 @@
 <link rel="stylesheet" type"text.css" href="{% static 'polls/style.css' %}" </>
 {% if latest_post_list %}
   <ul>
-  {% for question in latest_post_list %}
+  {% for post in latest_post_list %}
   <li><a href="{% url 'newsreel:detail' post.id %}">{{ post.title }}</a></li>
   {% endfor %}
   </ul>
