@@ -16,20 +16,20 @@ class IndexView(generic.ListView):
         return BlogPost.objects.filter(pub_date__lte=timezone.now()).order_by('pub_date')[:5]
 
 
-
 class DetailView(generic.DetailView):
     model = BlogPost
     template_Name = 'newsreel/detail.html'
+
     def get_queryset(self):
         """
         Excludes any questions that aren't published yet.
         """
         return BlogPost.objects.filter(pub_date__lte=timezone.now())
 
+
 class ResultsView(generic.DetailView):
     model = BlogPost
     template_name = 'newsreel/results.html'
-
 
 
 class CurrentView(generic.DetailView):
@@ -39,4 +39,8 @@ class CurrentView(generic.DetailView):
 
     def comment():
         pass
+
+def detail(request,blogpost_id):
+    blogpost = get_object_or_404(BlogPost, pk=blogpost_id)
+    return (request, 'polls/detail.html', { 'question': question })
 

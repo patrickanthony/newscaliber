@@ -1,0 +1,6 @@
+<h1>{{ blogpost.content }}</h1>
+<ul>
+{% for post in blogpost.title_set.all %}
+    <li>{{ blogpost.content }}</li>
+{% endfor %}
+</ul>
